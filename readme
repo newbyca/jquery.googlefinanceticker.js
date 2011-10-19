@@ -1,0 +1,7 @@
+google finance ticker 1.0
+jQuery plugin that converts a div into a stock ticker driven by live Google Finance data
+roughly based on http://www.gcmingati.net/wordpress/wp-content/lab/jquery/newsticker/jq-liscroll/scrollanimate.html
+
+Licensed under the MIT license.
+http://www.opensource.org/licenses/mit-license.php
+Copyright 2012 Chris Newby

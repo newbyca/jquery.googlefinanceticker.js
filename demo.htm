@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>google finance ticker demo</title>
+    <style type="text/css">
+        html, body
+        {
+            font-family: Sans-Serif;
+            font-size: 11pt;
+        }
+    </style>
+    <link type="text/css" rel="stylesheet" href="googlefinanceticker.min.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.googlefinanceticker.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('div#ticker').googlefinanceticker({ tickers: 'goog,aapl,msft,csco,intc,ibm,att,bidu' });
+        });
+    </script>
+</head>
+<body>
+
+<div id="ticker" style="width: 100%; height:32px;"></div>
+
+</body>
+</html>
