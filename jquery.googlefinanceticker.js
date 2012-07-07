@@ -1,11 +1,19 @@
-﻿ /**
+/*
  * google finance ticker 1.0
- * jQuery plugin that converts a div into a stock ticker driven by live Google Finance data
- * roughly based on http://www.gcmingati.net/wordpress/wp-content/lab/jquery/newsticker/jq-liscroll/scrollanimate.html
+ * a jQuery plugin that converts a div into a stock ticker driven by live Google Finance data
  *
- * Licensed under the MIT license.
+ * roughly based on
+ * http://www.gcmingati.net/wordpress/wp-content/lab/jquery/newsticker/jq-liscroll/scrollanimate.html
+ *
+ * dual licensed under the MIT and GPL licenses
  * http://www.opensource.org/licenses/mit-license.php
- * Copyright 2012 Chris Newby
+ * http://www.gnu.org/licenses/gpl.html
+ *
+ * for more info and a demo
+ * http://cubiclepi.com/post/24105167826/google-finance-ticker
+ *
+ * author
+ * chris newby
  */
 
 jQuery.fn.googlefinanceticker = function (settings) {
