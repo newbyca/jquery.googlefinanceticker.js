@@ -12,11 +12,15 @@
  * for more info and a demo
  * http://cubiclepi.com/post/24105167826/google-finance-ticker
  *
+ * passes http://www.jshint.com/
+ *
  * author
  * chris newby
  */
 
 jQuery.fn.googlefinanceticker = function (settings) {
+    
+    "use strict";
 
     this.settings = jQuery.extend(
         {
@@ -29,7 +33,7 @@ jQuery.fn.googlefinanceticker = function (settings) {
 
     var $container = $(this);
     $container.addClass('googlefinanceticker');
-    $container.html('<div class="mask"><div class="tickertape"></div><div class="left-blind"></div><div class="right-blind"></div></div>')
+    $container.html('<div class="mask"><div class="tickertape"></div><div class="left-blind"></div><div class="right-blind"></div></div>');
     var $scroll = $($container.children().eq(0).children().eq(0));
 
     this.initialize = function () {
@@ -38,7 +42,7 @@ jQuery.fn.googlefinanceticker = function (settings) {
         $.extend($scroll, { resetScroll: this.resetScroll });
         this.loadFeed();
         setInterval(this.loadFeed, this.settings.refresh);
-    }
+    };
 
     this.loadFeed = function () {
         var url = this.getFeedUrl();
@@ -46,28 +50,34 @@ jQuery.fn.googlefinanceticker = function (settings) {
             var html = '';
             $.each(data, function (i, tickerData) {
                 html +=
-                        '<a target="_blank" href="http://www.google.com/finance?q=' + tickerData.t + '">' + tickerData.name + '</a>'
-                        + '<span>'
+                        '<a target="_blank" href="http://www.google.com/finance?q=' + 
+                        tickerData.t + 
+                        '">' + 
+                        tickerData.name + 
+                        '</a>' + 
+                        '<span>'
                         ;
-                if (tickerData.l.toString().length > 0)
+                if (tickerData.l.toString().length > 0){
                     html += tickerData.l;
-                if (tickerData.c.toString().length > 0)
+                }
+                if (tickerData.c.toString().length > 0){
                     html += '&nbsp;&nbsp;' + tickerData.c + '%';
+                }
                 html += '</span>';
             });
             $scroll.html(html);
             $scroll.resetScroll();
         });
-    }
+    };
 
     this.getFeedUrl = function () {
         var url =
-            'http://www.google.com/finance/info?infotype=infoquoteall&q='
-            + settings.tickers
-            + '&callback=?'
+            'http://www.google.com/finance/info?infotype=infoquoteall&q=' + 
+            settings.tickers + 
+            '&callback=?'
             ;
         return url;
-    }
+    };
 
     this.resetScroll = function () {
 
@@ -87,7 +97,7 @@ jQuery.fn.googlefinanceticker = function (settings) {
                     scrollticker(distance, dt);
                 }
             );
-        };
+        }
         $scroll.css('left', containerWidth);
         scrollticker(distance, dt);
 
@@ -100,8 +110,8 @@ jQuery.fn.googlefinanceticker = function (settings) {
                 scrollticker(distance, dt);
             });
 
-    }
+    };
 
     this.initialize();
 
-}
+};
